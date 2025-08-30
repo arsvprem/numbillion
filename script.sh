@@ -63,7 +63,7 @@ get_word_form() {
 
 # Main loop to prompt for input
 while true; do
-    echo -n "Please enter a number (must start with 1 and end with 0 to 50 zeros): "
+    echo -n "Please enter a number: "
     read input
 
     # Check if input matches the pattern: starts with 1, followed by 0 to 50 zeros
