@@ -57,25 +57,78 @@ get_word_form() {
         48) echo "quindecillion" ;;
         49) echo "ten quindecillion" ;;
         50) echo "hundred quindecillion" ;;
+        51) echo "sexdecillion" ;;
+        52) echo "ten sexdecillion" ;;
+        53) echo "hundred sexdecillion" ;;
+        54) echo "septendecillion" ;;
+        55) echo "ten septendecillion" ;;
+        56) echo "hundred septendecillion" ;;
+        57) echo "octodecillion" ;;
+        58) echo "ten octodecillion" ;;
+        59) echo "hundred octodecillion" ;;
+        60) echo "novemdecillion" ;;
+        61) echo "ten novemdecillion" ;;
+        62) echo "hundred novemdecillion" ;;
+        63) echo "vigintillion" ;;
+        64) echo "ten vigintillion" ;;
+        65) echo "hundred vigintillion" ;;
+        66) echo "unvigintillion" ;;
+        67) echo "ten unvigintillion" ;;
+        68) echo "hundred unvigintillion" ;;
+        69) echo "duovigintillion" ;;
+        70) echo "ten duovigintillion" ;;
+        71) echo "hundred duovigintillion" ;;
+        72) echo "trevigintillion" ;;
+        73) echo "ten trevigintillion" ;;
+        74) echo "hundred trevigintillion" ;;
+        75) echo "quattuorvigintillion" ;;
+        76) echo "ten quattuorvigintillion" ;;
+        77) echo "hundred quattuorvigintillion" ;;
+        78) echo "quinvigintillion" ;;
+        79) echo "ten quinvigintillion" ;;
+        80) echo "hundred quinvigintillion" ;;
+        81) echo "sexvigintillion" ;;
+        82) echo "ten sexvigintillion" ;;
+        83) echo "hundred sexvigintillion" ;;
+        84) echo "septenvigintillion" ;;
+        85) echo "ten septenvigintillion" ;;
+        86) echo "hundred septenvigintillion" ;;
+        87) echo "octovigintillion" ;;
+        88) echo "ten octovigintillion" ;;
+        89) echo "hundred octovigintillion" ;;
+        90) echo "novemvigintillion" ;;
+        91) echo "ten novemvigintillion" ;;
+        92) echo "hundred novemvigintillion" ;;
+        93) echo "trigintillion" ;;
+        94) echo "ten trigintillion" ;;
+        95) echo "hundred trigintillion" ;;
+        96) echo "untrigintillion" ;;
+        97) echo "ten untrigintillion" ;;
+        98) echo "hundred untrigintillion" ;;
+        99) echo "duotrigintillion" ;;
+        100) echo "ten duotrigintillion" ;;
         *) echo "$num" ;;  # fallback, though shouldn't happen
     esac
 }
 
 # Main loop to prompt for input
 while true; do
-    echo -n "Please enter a number: "
+    echo -n "Please enter a number (must start with 1 and end with 0 to 100 zeros): "
     read input
 
-    # Check if input matches the pattern: starts with 1, followed by 0 to 50 zeros
-    if [[ $input =~ ^1(0{0,50})$ ]]; then
+    # Check if input matches the pattern: starts with 1, followed by 0 to 100 zeros
+    if [[ $input =~ ^1(0{0,100})$ ]]; then
         word_form=$(get_word_form $input)
         word_form_upper=$(echo "$word_form" | tr 'a-z' 'A-Z')
+        zeros_count=$(( ${#input} - 1 ))
         echo ""
+        echo "(You have entered: $zeros_count zeros)"
         echo "======================"
         echo "$word_form_upper"
         echo "======================"
+        echo ""
     else
-        echo "Error: Invalid number. It must start with 1 and end with 0 to 50 zeros."
+        echo "Error: Invalid number. It must start with 1 and end with 0 to 100 zeros."
         echo ""
     fi
 done
